@@ -16,16 +16,14 @@ function load(){
 
 
 }
-var titulo=document.getElementById('peliculas');
-    titulo.innerHTML="hola";
-    titulo.innerHTML=$("peliculas").value;
-function mostrarPeliculas() {
+
+/*function mostrarPeliculas() {
     var valorPelicula = $("peliculas").value;
     
     document.getElementById('peliculas').innerHTML=valorPelicula;
-}
+}*/
 function cargarPeliculas(valor) {
-    var peliculas = JSON.parse(valor);
+    alert(valor);
    /* peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
     var opciones = []
 
@@ -36,7 +34,7 @@ function cargarPeliculas(valor) {
     $("peliculas").innerHTML = opciones;
     var titulo=document.getElementById('peliculas');
     titulo.innerHTML="hola";*/
-    return peliculas;
+    
     
 }
 
