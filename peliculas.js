@@ -12,7 +12,11 @@ function $(demo){
 function load(){
     enviarMensajeAlServidor(servidor , cargarPeliculas);
     //$("peliculas").addEventListener("change", mostrarPeliculas);
-    $("#peliculas").innerHTML=$("peliculas").value;
+    //$("#peliculas").innerHTML=$("peliculas").value;
+    var titulo=document.getElementById('peliculas');
+    titulo.innerHTML="hola";
+    titulo.innerHTML=$("peliculas").value;
+
 
 }
 function mostrarPeliculas() {
