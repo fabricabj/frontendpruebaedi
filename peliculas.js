@@ -22,6 +22,7 @@ function cargarPeliculas(valor) {
     });
 
     $("peliculas").innerHTML = opciones;
+    $("#peliculas").innerHTML=opciones;
     
 }
 
@@ -29,7 +30,7 @@ function enviarMensajeAlServidor(servidor, funcionARealizar){
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.open("GET",servidor,true);
-    alert('hola');
+   
     xmlhttp.onreadystatechange = function(){
 
         if(xmlhttp.readyState == XMLHttpRequest.DONE){
