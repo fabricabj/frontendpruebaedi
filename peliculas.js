@@ -11,7 +11,9 @@ function $(demo){
 
 function load(){
     enviarMensajeAlServidor(servidor , cargarPeliculas);
-    $("provincia").addEventListener("change", mostrarPeliculas);
+    //$("peliculas").addEventListener("change", mostrarPeliculas);
+    $("#peliculas").innerHTML=$("peliculas").value;
+
 }
 function mostrarPeliculas() {
     var valorPelicula = $("peliculas").value;
