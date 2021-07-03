@@ -61,7 +61,7 @@ function enviarMensajeAlServidor(servidor, funcionARealizar){
 
 
 
-function enviarMensajeAlServidorPost(servidor, funcionARealizar) {
+/*function enviarMensajeAlServidorPost(servidor, funcionARealizar) {
 
     //declaro el objeto
     var xmlhttp = new XMLHttpRequest();
@@ -111,7 +111,7 @@ function enviarMensajeAlServidorPost(servidor, funcionARealizar) {
 
 
 
-/*function cargarOpcionesPeliculas(valor) {
+function cargarOpcionesPeliculas(valor) {
     var peliculas = JSON.parse(valor);
     peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
     var opciones = ['<option value=0>Selecciones una pelicula</option>']
