@@ -21,15 +21,15 @@ function cargarPeliculas(valor) {
         opciones.push(element.nombre);
     });
 
-    $("peliculas").innerHTML = "hola";
-    alert('hola');
+    $("peliculas").innerHTML = opciones;
+    
 }
 
 function enviarMensajeAlServidor(servidor, funcionARealizar){
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.open("GET",servidor,true);
-
+    alert('hola');
     xmlhttp.onreadystatechange = function(){
 
         if(xmlhttp.readyState == XMLHttpRequest.DONE){
