@@ -11,6 +11,12 @@ function $(demo){
 
 function load(){
     enviarMensajeAlServidor(servidor , cargarPeliculas);
+    $("provincia").addEventListener("change", mostrarPeliculas);
+}
+function mostrarPeliculas() {
+    var valorPelicula = $("peliculas").value;
+    
+    document.getElementById('peliculas').innerHTML=valorPelicula;
 }
 function cargarPeliculas(valor) {
     var peliculas = JSON.parse(valor);
@@ -30,6 +36,7 @@ function cargarPeliculas(valor) {
 
 function enviarMensajeAlServidor(servidor, funcionARealizar){
     var xmlhttp = new XMLHttpRequest();
+
     xmlhttp.open("GET",servidor,true);
    
     xmlhttp.onreadystatechange = function(){
