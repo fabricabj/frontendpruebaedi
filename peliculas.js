@@ -21,7 +21,7 @@ function cargarPeliculas(valor) {
         opciones.push(element.nombre);
     });
 
-    $("peliculas").innerHTML = opciones;
+    $("peliculas").innerHTML = "hola";
 }
 
 function enviarMensajeAlServidor(servi, funcionARealizar){
