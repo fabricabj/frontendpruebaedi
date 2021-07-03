@@ -1,6 +1,6 @@
 addEventListener("load", load);
 //llamo al servidor
-var servi = "https://backendpruebaedi.herokuapp.com/login";
+var servi = "https://backendpruebaedi.herokuapp.com/peliculas";
 //var servi = "localhost:444/login";
 
 function $(demo){
@@ -10,20 +10,18 @@ function $(demo){
 
 
 function load(){
-    document.getElementById("ingresar").addEventListener("click", click);
+    enviarMensajeAlServidor(servidor , cargarPeliculas);
 }
+function cargarPeliculas(valor) {
+    var peliculas = JSON.parse(valor);
+    peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
+    var opciones = []
 
-function click(){
-   enviarMensajeAlServidorPost(servi,retornoDelClick);
+    peliculas.forEach(element => {
+        opciones.push(element.nombre);
+    });
 
-}
-
-function retornoDelClick(respuesta){
-    if(respuesta == 'Bienvenido'){
-        location.replace("peliculas.html");
-    }else{
-        alert('Usuario o contraseña incorrecto');
-    }
+    $("peliculas").innerHTML = opciones;
 }
 
 function enviarMensajeAlServidor(servi, funcionARealizar){
