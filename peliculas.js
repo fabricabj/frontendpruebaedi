@@ -23,7 +23,8 @@ function load(){
     document.getElementById('peliculas').innerHTML=valorPelicula;
 }*/
 function cargarPeliculas(valor) {
-    alert(valor);
+    document.getElementById('peliculas').innerHTML=valor;
+//alert(valor);
    /* peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
     var opciones = []
 
