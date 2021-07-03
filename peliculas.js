@@ -23,7 +23,7 @@ function cargarPeliculas(valor) {
 
     $("peliculas").innerHTML = opciones;
     var titulo=document.getElementById('peliculas');
-    titulo.innerHTML=opciones;
+    titulo.innerHTML="hola";
     
 }
 
