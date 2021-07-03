@@ -22,13 +22,13 @@ function cargarPeliculas(valor) {
     });
 
     $("peliculas").innerHTML = opciones;
+    var titulo=document.getElementById('peliculas');
+    titulo.innerHTML=opciones;
     
 }
 
 function enviarMensajeAlServidor(servidor, funcionARealizar){
     var xmlhttp = new XMLHttpRequest();
-    var titulo=document.getElementById('peliculas');
-    titulo.innerHTML="hola";
     xmlhttp.open("GET",servidor,true);
    
     xmlhttp.onreadystatechange = function(){
