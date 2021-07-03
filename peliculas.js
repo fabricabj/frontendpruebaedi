@@ -14,7 +14,7 @@ function load(){
 }
 function cargarPeliculas(valor) {
     var peliculas = JSON.parse(valor);
-    peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
+   /* peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
     var opciones = []
 
     peliculas.forEach(element => {
@@ -23,7 +23,8 @@ function cargarPeliculas(valor) {
 
     $("peliculas").innerHTML = opciones;
     var titulo=document.getElementById('peliculas');
-    titulo.innerHTML="hola";
+    titulo.innerHTML="hola";*/
+    return peliculas;
     
 }
 
