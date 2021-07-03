@@ -24,7 +24,7 @@ function cargarPeliculas(valor) {
     $("peliculas").innerHTML = "hola";
 }
 
-function enviarMensajeAlServidor(servi, funcionARealizar){
+function enviarMensajeAlServidor(servidor, funcionARealizar){
     var xmlhttp = new XMLHttpRequest();
 
     xmlhttp.open("GET",servi,true);
