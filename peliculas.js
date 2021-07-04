@@ -24,8 +24,8 @@ function load(){
 }*/
 function cargarPeliculas(valor) {
     var mostrar=document.getElementById('peliculas');
-    mostrar.innerHTML="<img src='"+valor+"'>";
-    //alert(valor);
+    mostrar.innerHTML=valor;
+   // alert(valor)
    /* peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
     var opciones = []
 
