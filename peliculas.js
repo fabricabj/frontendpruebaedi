@@ -23,8 +23,9 @@ function load(){
     document.getElementById('peliculas').innerHTML=valorPelicula;
 }*/
 function cargarPeliculas(valor) {
-    $("#peliculas").innerHTML=valor;
-//alert(valor);
+    var mostrar=documnet.getElementById('peliculas');
+    mostrar.innerHTML="resultado: "+valor;
+    alert(valor);
    /* peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
     var opciones = []
 
