@@ -39,12 +39,12 @@ body{
       #password-group>label{
         color:white;
     }
-    .box2 p{
+    /*.box2 p{
       display: inline-block;
       width: 200px;
       height: 100px;
       margin: 1em;
-    }
+    }*/
     .box2 img{
       display: inline-block;
       width:300px;
