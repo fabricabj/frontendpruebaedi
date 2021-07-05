@@ -28,7 +28,7 @@ function cargarPeliculas(valor) {
     var opciones = []
 
     peliculas.forEach(element => {
-        opciones.push(element.nombre);
+        opciones.push(element.valor);
     });
 
  
