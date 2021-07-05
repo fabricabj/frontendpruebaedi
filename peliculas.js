@@ -23,17 +23,8 @@ function load(){
     document.getElementById('peliculas').innerHTML=valorPelicula;
 }*/
 function cargarPeliculas(valor) {
-    var peliculas = JSON.parse(valor);
-    peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
-    var opciones = ['<option value=0>Selecciones una provincia</option>']
-
-    provincias.forEach(element => {
-        opciones.push('<option value="' + element.valor + '">' + element.nombre + '</option>');
-    });
-
-    $("peliculas").innerHTML = opciones;
-    /*var mostrar=document.getElementById('peliculas');
-    mostrar.innerHTML="<div class='row'><div class='col-md-3'>"+valor+"</div></div>";*/
+    var mostrar=document.getElementById('peliculas');
+    mostrar.innerHTML="<div class='row'><div class='col-md-3'>"+valor+"</div></div>";
    // alert(valor)
    /* peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
     var opciones = []
