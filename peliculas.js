@@ -23,8 +23,17 @@ function load(){
     document.getElementById('peliculas').innerHTML=valorPelicula;
 }*/
 function cargarPeliculas(valor) {
+    var peliculas = JSON.parse(valor);
+    peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
+    var opciones = []
+
+    peliculas.forEach(element => {
+        opciones.push(element.nombre);
+    });
+
+ 
     var mostrar=document.getElementById('peliculas');
-    mostrar.innerHTML="<div class='row'><div class='col-md-3'>"+valor+"</div></div>";
+    mostrar.innerHTML=opciones;
    // alert(valor)
    /* peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
     var opciones = []
