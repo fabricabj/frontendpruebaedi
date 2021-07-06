@@ -32,9 +32,7 @@ function load() {
                  alert("ocurrio un error");
              }
          }
-     }
-      
-     var msg="falta ingresar datos en \n";
+         var msg="falta ingresar datos en \n";
      var ok=true;
 
      if($('titulo')==""){
@@ -93,10 +91,12 @@ function load() {
  
  
      }
+     }
+      
+     
  
  
  
- }
 
 function Numeros(string){
     var out = '';
