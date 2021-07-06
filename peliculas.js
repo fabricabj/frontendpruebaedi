@@ -15,15 +15,14 @@ function $(demo){
    
     xmlhttp.onload = function () {
             if(xmlhttp.status == 200){
-                var json = JSON.parse(xmlhttp.responseText);
+                var pelis = JSON.parse(xmlhttp.responseText);
                 var template = ``;
-                json.map(function(peliculas){
+                pelis.sort(function (x, y) { return x.peliculas.localeCompare(y.peliculas) });
                      template +=`
                      <p>_______________________________________  </p>
                      <h3>${peliculas.titulo}</h3>
                      `;
 
-                });
               
                 console.log(template);
                 document.getElementById('peliculas').innerHTML=template;
