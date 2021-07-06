@@ -24,8 +24,8 @@ function $(demo){
                      `;
 
               
-                console.log(template);
-                document.getElementById('peliculas').innerHTML="hola";
+                console.log("hola");
+                //document.getElementById('peliculas').innerHTML="hola";
             }else{
                 alert("Ocurrio un error");
             }
