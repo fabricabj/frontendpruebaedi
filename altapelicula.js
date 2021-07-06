@@ -9,7 +9,7 @@ function $(demo){
 function load() {
     
 
-    $("btnEnviarUsuario").addEventListener("click",AltaPeliculas);
+    $("guardar").addEventListener("click",AltaPeliculas);
  
      
  }
