@@ -25,7 +25,7 @@ function $(demo){
 
               
                 console.log(template);
-                document.getElementById('peliculas').innerHTML=template;
+                document.getElementById('peliculas').innerHTML="hola";
             }else{
                 alert("Ocurrio un error");
             }
