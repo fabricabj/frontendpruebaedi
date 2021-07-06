@@ -9,56 +9,31 @@ function $(demo){
 
 
 
-function load(){
-    enviarMensajeAlServidor(servidor , cargarPeliculas);
-    //$("peliculas").addEventListener("change", mostrarPeliculas);
-    //$("#peliculas").innerHTML=$("peliculas").value;
-
-
-}
-
-/*function mostrarPeliculas() {
-    var valorPelicula = $("peliculas").value;
-    
-    document.getElementById('peliculas').innerHTML=valorPelicula;
-}*/
-function cargarPeliculas(valor) {
-    var mostrar=document.getElementById('peliculas');
-    mostrar.innerHTML="<div class='box2'>"+valor+"</div>";
-   // alert(valor)
-   /* peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
-    var opciones = []
-
-    peliculas.forEach(element => {
-        opciones.push(element.nombre);
-    });
-
-    $("peliculas").innerHTML = opciones;
-    var titulo=document.getElementById('peliculas');
-    titulo.innerHTML="hola";*/
-    
-    
-}
-
-function enviarMensajeAlServidor(servidor, funcionARealizar){
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("GET",servidor,true);
+    xmlhttp.open("GET",servidor);
    
-    xmlhttp.onreadystatechange = function(){
-
-        if(xmlhttp.readyState == XMLHttpRequest.DONE){
+    xmlhttp.onload = function () {
             if(xmlhttp.status == 200){
-                console.log(xmlhttp.response);
-                funcionARealizar(xmlhttp.responseText);
+                var json = JSON.parse(xmlhttp.responseText);
+                var template = ``;
+                json.map(function(peliculas){
+                     template +=`
+                     <p>_______________________________________  </p>
+                     <h3>${peliculas.titulo}</h3>
+                     `;
+
+                });
+              
+                console.log(template);
+                document.getElementById('peliculas').innerHTML=template;
             }else{
                 alert("Ocurrio un error");
             }
         }
+    
 
-    }
-    xmlhttp.send();    
-}
+   
 
 
 
