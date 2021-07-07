@@ -27,7 +27,7 @@ function load() {
  
      var xmlhttp = new XMLHttpRequest();
      var obje = new FormData();
-     obje.append("titulo",$("titulo").value);
+
     
      var msg="falta ingresar datos en \n";
      var ok=true;
@@ -36,7 +36,7 @@ function load() {
          msg+="Titulo\n";
          ok=false;
      }
-     /*if($('duracion').value==""){
+     if($('duracion').value==""){
         msg+="Duracion\n";
         ok=false;
      }
@@ -59,7 +59,7 @@ function load() {
      if($('trailer').value==""){
         msg+="Trailer\n";
         ok=false;
-     }*/
+     }
      if(ok==false){
         alert(msg);
 
@@ -82,7 +82,7 @@ function load() {
              }
          }
         }
-  
+        xmlhttp.setRequestHeader("enctype", "multipart/form-data");
 
         //envio el mensaje    
         xmlhttp.send(obje);
