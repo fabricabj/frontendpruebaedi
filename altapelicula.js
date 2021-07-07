@@ -26,37 +26,37 @@ function load() {
  function enviarMensajeAlServidorPost(servidor, funcionARealizar){
  
      var xmlhttp = new XMLHttpRequest();
-     var obje = new FormData();
+     var datos = new FormData();
 
     
      var msg="falta ingresar datos en \n";
      var ok=true;
 
-     if($('titulo')==""){
+     if(document.getElementById('titulo')==""){
          msg+="Titulo\n";
          ok=false;
      }
-     if($('duracion')==""){
+     if(document.getElementById('duracion')==""){
         msg+="Duracion\n";
         ok=false;
      }
-     if($('descripcion')==""){
+     if(document.getElementById('descripcion')==""){
         msg+="Descripcion\n";
         ok=false;
      }
-     if($('puntaje')==""){
+     if(document.getElementById('puntaje')==""){
         msg+="puntaje\n";
         ok=false;
      }
-     if($('imagen')==""){
+     if(document.getElementById('imagen')==""){
         msg+="imagen\n";
         ok=false;
      }
-     if($('anio')==""){
+     if(document.getElementById('anio')==""){
         msg+="año\n";
         ok=false;
      }
-     if($('trailer')==""){
+     if(document.getElementById('trailer')==""){
         msg+="Trailer\n";
         ok=false;
      }
@@ -85,7 +85,7 @@ function load() {
         xmlhttp.setRequestHeader("enctype", "multipart/form-data");
 
         //envio el mensaje    
-        xmlhttp.send(obje);
+        xmlhttp.send(datos);
     }
  
  
