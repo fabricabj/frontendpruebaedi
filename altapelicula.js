@@ -22,10 +22,11 @@ function load() {
         alert(respuesta);
     
 }
- 
- function enviarMensajeAlServidorPost(servidor, funcionARealizar){
- 
-     var xmlhttp = new XMLHttpRequest();
+
+function enviarMensajeAlServidorPost(servidor, funcionARealizar) {
+
+    //declaro el objeto
+    var xmlhttp = new XMLHttpRequest();
      var datos = new FormData();
      datos.append("titulo",$("titulo").value);
      datos.append("duracion",$("duracion").value);
@@ -68,35 +69,32 @@ function load() {
      if(ok==false){
         alert(msg);
 
-     }
-     else{
-     
-    
-     xmlhttp.open("POST", servidor, true);
-     xmlhttp.onreadystatechange = function () {
-         //Veo si llego la respuesta del servidor
-         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-             //Reviso si la respuesta es correcta
-             if (xmlhttp.status == 200) {
-                 funcionARealizar(xmlhttp.responseText);
- 
-                 
-             }
-             else {
-                 alert("ocurrio un error");
-             }
-         }
+     }else{
+
+    // indico hacia donde va el mensaje
+    xmlhttp.open("POST", servidor, true);
+    //seteo el evento
+    xmlhttp.onreadystatechange = function () {
+        //Veo si llego la respuesta del servidor
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            //Reviso si la respuesta es correcta
+            if (xmlhttp.status == 200) {
+                funcionARealizar(xmlhttp.responseText);
+            }
+            else {
+                alert("ocurrio un error");
+            }
         }
-        xmlhttp.setRequestHeader("enctype", "multipart/form-data");
-
-        //envio el mensaje    
-        xmlhttp.send();
+    
     }
- 
- 
- 
-     }
 
+   
+    xmlhttp.setRequestHeader("enctype", "multipart/form-data");
+
+    //envio el mensaje    
+    xmlhttp.send(datos);
+    } 
+}
 
 
 function Numeros(string){
