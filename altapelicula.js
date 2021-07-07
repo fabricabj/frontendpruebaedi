@@ -9,30 +9,16 @@ function $(demo){
 function load() {
     
 
-    $("guardar").addEventListener("click",AltaPeliculas);
+    $('guardar').addEventListener("click",AltaPeliculas);
  
      
  }
  
+ 
  function AltaPeliculas(){
  
      var xmlhttp = new XMLHttpRequest();
-    
-     xmlhttp.open("POST", servidor, true);
-     xmlhttp.onreadystatechange = function () {
-         //Veo si llego la respuesta del servidor
-         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-             //Reviso si la respuesta es correcta
-             if (xmlhttp.status == 200) {
-                 //alert(xmlhttp.responseText);
- 
-                 
-             }
-             else {
-                 alert("ocurrio un error");
-             }
-         }
-         var msg="falta ingresar datos en \n";
+     var msg="falta ingresar datos en \n";
      var ok=true;
 
      if($('titulo')==""){
@@ -87,11 +73,33 @@ function load() {
      $("imagen").value = "";
      $("anio").value  ="";
      $("trailer").value="";
+    
+     xmlhttp.open("POST", servidor, true);
+     xmlhttp.onreadystatechange = function () {
+         //Veo si llego la respuesta del servidor
+         if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+             //Reviso si la respuesta es correcta
+             if (xmlhttp.status == 200) {
+                 console.log(xmlhttp.response);
+                 funcionARealizar(xmlhttp.responseText);
+ 
+                 
+             }
+             else {
+                 alert("ocurrio un error");
+             }
+         }
+        }
+        xmlhttp.setRequestHeader("enctype", "multipart/form-data");
+
+        //envio el mensaje    
+        xmlhttp.send(datos);
+     
  
  
  
      }
-     }
+    
       
      
  
