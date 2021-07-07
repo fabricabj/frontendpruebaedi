@@ -9,7 +9,7 @@ function $(demo){
 function load() {
     
 
-    $('guardar').addEventListener("click",click);
+    document.getElementById("guardar").addEventListener("click", click);
  
      
  }
@@ -23,7 +23,7 @@ function load() {
     
 }
  
- function enviarMensajeAlServidorPost(servidor,funcionARealizar){
+ function enviarMensajeAlServidorPost(servidor, funcionARealizar){
  
      var xmlhttp = new XMLHttpRequest();
      var obje = new FormData();
