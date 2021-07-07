@@ -18,6 +18,24 @@ function load() {
  function AltaPeliculas(){
  
      var xmlhttp = new XMLHttpRequest();
+     var obje = new FormData();
+     obje.append("Titulo", $("titulo").value );
+     obje.append("Descripcion", $("descripcion").value );
+     obje.append("Duracion", $("duracion").value );
+     obje.append("puntaje", $("puntaje").value );
+     obje.append("imagen", $("imagen").value );
+     obje.append("anio", $("anio").value );
+     obje.append("trailer", $("trailer").value );
+     //envio el mensaje    
+     alert("Usuario creado");
+ 
+     $("titulo").value = "";
+     $("descripcion").value = "";
+     $("duracion").value = "";
+     $("puntaje").value = "";
+     $("imagen").value = "";
+     $("anio").value  ="";
+     $("trailer").value="";
      var msg="falta ingresar datos en \n";
      var ok=true;
 
@@ -53,25 +71,8 @@ function load() {
         alert(msg);
 
      }
-     else
-     var obje = new FormData();
-     obje.append("Titulo", $("titulo").value );
-     obje.append("Descripcion", $("descripcion").value );
-     obje.append("Duracion", $("duracion").value );
-     obje.append("puntaje", $("puntaje").value );
-     obje.append("imagen", $("imagen").value );
-     obje.append("anio", $("anio").value );
-     obje.append("trailer", $("trailer").value );
-     //envio el mensaje    
-     alert("Usuario creado");
- 
-     $("titulo").value = "";
-     $("descripcion").value = "";
-     $("duracion").value = "";
-     $("puntaje").value = "";
-     $("imagen").value = "";
-     $("anio").value  ="";
-     $("trailer").value="";
+     else{
+     
     
      xmlhttp.open("POST", servidor, true);
      xmlhttp.onreadystatechange = function () {
@@ -93,7 +94,7 @@ function load() {
 
         //envio el mensaje    
         xmlhttp.send(obje);
-     
+    }
  
  
  
