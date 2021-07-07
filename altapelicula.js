@@ -9,7 +9,7 @@ function $(demo){
 function load() {
     
 
-    document.getElementById("guardar").addEventListener("click", click);
+    document.getElementById("alta").addEventListener("click", click);
  
      
  }
