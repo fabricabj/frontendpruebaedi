@@ -1,26 +1,23 @@
 addEventListener("load", load);
-
-var servidor = "https://backendpruebaedi.herokuapp.com/peliculas/alta";
-
+//llamo al servidor
+var servidor = "https://backendpruebaedi.herokuapp.com/";
+//var servi = "localhost:444";
 
 function $(demo){
     return document.getElementById(demo);
 }
-function load() {
-    
 
+function load(){
     document.getElementById("alta").addEventListener("click", click);
- 
-     
- }
- function click(){
-    enviarMensajeAlServidorPost(servidor,retornoDelClick);
- 
- }
- function retornoDelClick(respuesta){
-    
-        alert(respuesta);
-    
+}
+
+function click(){
+   enviarMensajeAlServidorPost(servidor,retornoDelClick);
+
+}
+
+function retornoDelClick(respuesta){
+    alert(respuesta);
 }
 
 function enviarMensajeAlServidorPost(servidor, funcionARealizar) {
@@ -96,47 +93,3 @@ function enviarMensajeAlServidorPost(servidor, funcionARealizar) {
     } 
 }
 
-
-function Numeros(string){
-    var out = '';
-    ok=true;
-    var filtro = '1234567890';
-    for (var i=0; i<4; i++)
-       if (filtro.indexOf(string.charAt(i)) != -1)
-	     out += string.charAt(i);
-    
-         return out;
-}
-function filterFloat(evt,input){
-        var key = window.Event ? evt.which : evt.keyCode;    
-        var chark = String.fromCharCode(key);
-        var tempValue = input.value+chark;
-        if(key >= 48 && key <= 57){
-            if(filter(tempValue)=== false){
-                return false;
-            }else{       
-                return true;
-            }
-        }else{
-              if(key == 8 || key == 13 || key == 0) {     
-                  return true;              
-              }else if(key == 46){
-                    if(filter(tempValue)=== false){
-                        return false;
-                    }else{       
-                        return true;
-                    }
-              }else{
-                  return false;
-              }
-        }
-}
-function filter(__val__){
-    var preg = /^([0-9]+\.?[0-9]{0,2})$/; 
-    if(preg.test(__val__) === true){
-        return true;
-    }else{
-        return false;
-    }
-    
-}
