@@ -67,7 +67,7 @@ function load() {
      else{
      
     
-     xmlhttp.open("POST", servidor, true);
+     xmlhttp.open("POST", servidor, false);
      xmlhttp.onreadystatechange = function () {
          //Veo si llego la respuesta del servidor
          if (xmlhttp.readyState == XMLHttpRequest.DONE) {
