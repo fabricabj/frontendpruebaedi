@@ -9,13 +9,21 @@ function $(demo){
 function load() {
     
 
-    $('guardar').addEventListener("click",AltaPeliculas);
+    $('guardar').addEventListener("click",click);
  
      
  }
+ function click(){
+    enviarMensajeAlServidorPost(servidor,retornoDelClick);
  
+ }
+ function retornoDelClick(respuesta){
+    
+        alert('pelicula creada');
+    
+}
  
- function AltaPeliculas(){
+ function enviarMensajeAlServidorPost(servidor,funcionARealizar){
  
      var xmlhttp = new XMLHttpRequest();
      var obje = new FormData();
@@ -26,16 +34,7 @@ function load() {
      obje.append("imagen", $("imagen").value );
      obje.append("anio", $("anio").value );
      obje.append("trailer", $("trailer").value );
-     //envio el mensaje    
-     alert("Usuario creado");
- 
-     $("titulo").value = "";
-     $("descripcion").value = "";
-     $("duracion").value = "";
-     $("puntaje").value = "";
-     $("imagen").value = "";
-     $("anio").value  ="";
-     $("trailer").value="";
+    
      var msg="falta ingresar datos en \n";
      var ok=true;
 
@@ -80,7 +79,6 @@ function load() {
          if (xmlhttp.readyState == XMLHttpRequest.DONE) {
              //Reviso si la respuesta es correcta
              if (xmlhttp.status == 200) {
-                 console.log(xmlhttp.response);
                  funcionARealizar(xmlhttp.responseText);
  
                  
