@@ -27,7 +27,12 @@ function load() {
  
      var xmlhttp = new XMLHttpRequest();
      var datos = new FormData();
-
+     datos.append("titulo",$("titulo").value);
+     datos.append("duracion",$("duracion").value);
+     datos.append("puntaje",$("puntaje").value);
+     datos.append("imagen",$("imagen").value);
+     datos.append("treiler",$("trailer").value);
+     datos.append("descripcion",$("descripcion").value);
     
      var msg="falta ingresar datos en \n";
      var ok=true;
