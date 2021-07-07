@@ -19,7 +19,7 @@ function load() {
  }
  function retornoDelClick(respuesta){
     
-        alert('pelicula creada');
+        alert(respuesta);
     
 }
  
@@ -27,9 +27,9 @@ function load() {
  
      var xmlhttp = new XMLHttpRequest();
      var obje = new FormData();
-     obje.append("Titulo", $("titulo").value );
-     obje.append("Descripcion", $("descripcion").value );
-     obje.append("Duracion", $("duracion").value );
+     obje.append("titulo", $("titulo").value );
+     obje.append("descripcion", $("descripcion").value );
+     obje.append("duracion", $("duracion").value );
      obje.append("puntaje", $("puntaje").value );
      obje.append("imagen", $("imagen").value );
      obje.append("anio", $("anio").value );
@@ -39,31 +39,31 @@ function load() {
      var ok=true;
 
      if($('titulo')==""){
-         ms+="Titulo\n";
+         msg+="Titulo\n";
          ok=false;
      }
      if($('duracion')==""){
-        ms+="Duracion\n";
+        msg+="Duracion\n";
         ok=false;
      }
      if($('descripcion')==""){
-        ms+="Descripcion\n";
+        msg+="Descripcion\n";
         ok=false;
      }
      if($('puntaje')==""){
-        ms+="puntaje\n";
+        msg+="puntaje\n";
         ok=false;
      }
      if($('imagen')==""){
-        ms+="imagen\n";
+        msg+="imagen\n";
         ok=false;
      }
      if($('anio')==""){
-        ms+="año\n";
+        msg+="año\n";
         ok=false;
      }
      if($('trailer')==""){
-        ms+="Trailer\n";
+        msg+="Trailer\n";
         ok=false;
      }
      if(ok==false){
