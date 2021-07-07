@@ -63,7 +63,6 @@ function load() {
      obje.append("anio", $("anio").value );
      obje.append("trailer", $("trailer").value );
      //envio el mensaje    
-     xmlhttp.send(obje);
      alert("Usuario creado");
  
      $("titulo").value = "";
@@ -93,7 +92,7 @@ function load() {
         xmlhttp.setRequestHeader("enctype", "multipart/form-data");
 
         //envio el mensaje    
-        xmlhttp.send(datos);
+        xmlhttp.send(obje);
      
  
  
