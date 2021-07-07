@@ -37,31 +37,31 @@ function load() {
      var msg="falta ingresar datos en \n";
      var ok=true;
 
-     if(document.getElementById('titulo')==""){
+     if(document.getElementById('titulo').value==""){
          msg+="Titulo\n";
          ok=false;
      }
-     if(document.getElementById('duracion')==""){
+     if(document.getElementById('duracion').value==""){
         msg+="Duracion\n";
         ok=false;
      }
-     if(document.getElementById('descripcion')==""){
+     if(document.getElementById('descripcion').value==""){
         msg+="Descripcion\n";
         ok=false;
      }
-     if(document.getElementById('puntaje')==""){
+     if(document.getElementById('puntaje').value==""){
         msg+="puntaje\n";
         ok=false;
      }
-     if(document.getElementById('imagen')==""){
+     if(document.getElementById('imagen').value==""){
         msg+="imagen\n";
         ok=false;
      }
-     if(document.getElementById('anio')==""){
+     if(document.getElementById('anio').value==""){
         msg+="año\n";
         ok=false;
      }
-     if(document.getElementById('trailer')==""){
+     if(document.getElementById('trailer').value==""){
         msg+="Trailer\n";
         ok=false;
      }
@@ -96,12 +96,8 @@ function load() {
  
  
      }
-    
-      
-     
- 
- 
- 
+
+
 
 function Numeros(string){
     var out = '';
