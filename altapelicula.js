@@ -82,10 +82,10 @@ function load() {
              }
          }
         }
-        xmlhttp.setRequestHeader("enctype", "multipart/form-data");
+  
 
         //envio el mensaje    
-        xmlhttp.send();
+        xmlhttp.send(obje);
     }
  
  
