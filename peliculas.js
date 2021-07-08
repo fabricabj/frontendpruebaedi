@@ -1,7 +1,6 @@
 addEventListener("load", load);
 //llamo al servidor
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
-var serviDelet = "https://backendpruebaedi.herokuapp.com/eliminarpelicula";
 //var servi = "localhost:444/login";
 
 function $(demo){
@@ -44,14 +43,33 @@ function cargarPeliculas(valor) {
 }
 function eliminarDato(idPelicula){
     var eliminar = confirm('De verdad desea eliminar este dato?');
-
+    var id=document.getElementById('eliminar_pelicula').value;
 
     if ( eliminar ) {
-         enviarMensajeAlServidorPost(serviDelet, funcionARealizar);
+          alert(id);
     }
+} 
+
+function enviarMensajeAlServidor(servidor, funcionARealizar){
+    var xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.open("GET",servidor,true);
+   
+    xmlhttp.onreadystatechange = function(){
+
+        if(xmlhttp.readyState == XMLHttpRequest.DONE){
+            if(xmlhttp.status == 200){
+                console.log(xmlhttp.response);
+                funcionARealizar(xmlhttp.responseText);
+            }else{
+                alert("Ocurrio un error");
+            }
+        }
+
+    }
+    xmlhttp.send();    
 }
 
- 
 
 
 
