@@ -39,6 +39,7 @@ function cargarPeliculas(valor) {
                         '<p><i class="fas fa-star"></i>'+element.puntaje+'</p>'+
                         '<div class="card-body" style="height:70px">'+
                            '<p align="center" class="card-text">'+element.titulo+'</p>'+
+                           '<button>eliminar</button>'+
                         '</div>'+
                       '</div>'+
                   '</div>'
