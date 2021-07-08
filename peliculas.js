@@ -28,10 +28,10 @@ function cargarPeliculas(valor) {
 
    // alert(valor)
     var peliculas = JSON.parse(valor);
-    peliculas.sort(function (x, y) { return x.titulo.localeCompare(y.titulo) });
+    peliculas.sort(function (x, y) { return x.titulo.localeCompare(y.titulo); return x.imagen.localeCompare(y.imagen)});
     var titulos = []
     peliculas.forEach(element => {
-        titulos.push(element.titulo);
+        titulos.push(element.imagen);
     });
     //alert(opciones);
     $('peliculas').innerHTML="<div class='row'><div class='col-md-3'>"+titulos+"</div></div>";
