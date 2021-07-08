@@ -28,7 +28,7 @@ function cargarPeliculas(valor) {
 
    // alert(valor)
     var peliculas = JSON.parse(valor);
-    alert(peliculas[0]);
+    alert(peliculas[0].valor);
     
     
 }
