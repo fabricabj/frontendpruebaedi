@@ -23,9 +23,15 @@ function load(){
     document.getElementById('peliculas').innerHTML=valorPelicula;
 }*/
 function cargarPeliculas(valor) {
+    /*var mostrar=document.getElementById('peliculas');
+    mostrar.innerHTML="<div class='box2'>"+valor+"</div>";*/
+
+   // alert(valor)
     var peliculas = JSON.parse(valor);
     peliculas.sort(function (x, y) { return x.titulo.localeCompare(y.titulo); return x.imagen.localeCompare(y.imagen);return x.puntaje.localeCompare(y.puntaje)});
     var todo=[];
+    var titulos = []
+    var imagenes = []
     peliculas.forEach(element => {
         todo.push('<div class="col-md-3">'+
                       '<div class="card" style="width: 12.5rem;background:#212121;color:white">'+
@@ -33,17 +39,17 @@ function cargarPeliculas(valor) {
                         '<p><i class="fas fa-star"></i>'+element.puntaje+'</p>'+
                         '<div class="card-body" style="height:70px">'+
                            '<p align="center" class="card-text">'+element.titulo+'</p>'+
-      
-                            '<button style="float: left;margin: 5px;border-radius:30px" type="submit" name="titulo"><i class="fas fa-pencil-alt"></i></button>'+
-                        '<div>'+
+                        '</div>'+
                       '</div>'+
                   '</div>'
+
                  );
         
     });
- 
+    //alert(opciones);
     $('peliculas').innerHTML=todo;
-
+    
+    
 }
 
 function enviarMensajeAlServidor(servidor, funcionARealizar){
