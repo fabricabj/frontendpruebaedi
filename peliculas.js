@@ -23,20 +23,12 @@ function load(){
     document.getElementById('peliculas').innerHTML=valorPelicula;
 }*/
 function cargarPeliculas(valor) {
-    var mostrar=document.getElementById('peliculas');
-    mostrar.innerHTML="<div class='box2'>"+valor+"</div>";
+    /*var mostrar=document.getElementById('peliculas');
+    mostrar.innerHTML="<div class='box2'>"+valor+"</div>";*/
 
    // alert(valor)
-   /* peliculas.sort(function (x, y) { return x.nombre.localeCompare(y.nombre) });
-    var opciones = []
-
-    peliculas.forEach(element => {
-        opciones.push(element.nombre);
-    });
-
-    $("peliculas").innerHTML = opciones;
-    var titulo=document.getElementById('peliculas');
-    titulo.innerHTML="hola";*/
+    var peliculas = JSON.parse(valor);
+    alert(peliculas[0]);
     
     
 }
