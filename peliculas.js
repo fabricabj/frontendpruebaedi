@@ -20,7 +20,7 @@ function cargarPeliculas(valor) {
     //peliculas.sort(function (x, y) { return x.titulo.localeCompare(y.titulo); return x.imagen.localeCompare(y.imagen);return x.puntaje.localeCompare(y.puntaje)});
     var todo=[];
     peliculas.forEach(element => {
-        todo.push('<div class="col-md-3">'+
+        todo.push('<div class="col-md-3"  style="padding:1%;">'+
                       '<div class="card" style="width: 12.5rem;background:#212121;color:white">'+
                         '<img src="'+element.imagen+'" class="card-img-top">'+
                         '<p><i class="fas fa-star"></i>'+element.puntaje+'</p>'+
