@@ -29,51 +29,13 @@ function cargarPeliculas(valor) {
                            '<p align="center" class="card-text">'+element.titulo+'</p>'+
                            '<input class="form-control" type="text" id="id_pelicula" name="id_pelicula" value="'+element.id_pelicula+'" hidden>'+
                            '<a style="float: left;margin: 5px;border-radius:30px" href="modificarpeliculas.html" id="modificar" class="btn btn-dark"><i class="fas fa-pencil-alt"></i></a>'+
-                           '<button style="float: left;margin: 5px;border-radius:30px" type="submit" name="'+element.id_pelicula+'" id="eliminar" class="btn btn-dark"><i class="fas fa-trash-alt"></i></button>'+
+                           '<a style="text-decoration:underline;cursor:pointer; float: left;margin-right:5px;border-radius:30px;margin-top: 2%" class="btn btn-light card-text" href="#" onclick="eliminarDato('+element.id_pelicula+')"><i class="fas fa-trash-alt"></i></a>'+
                         '</div>'+
                       '</div>'+
                   '</div>'
 
                  );
-                 document.getElementById("modificar").addEventListener("click", click);
-                 function click(){
-                    enviarMensajeAlServidorPost(serviMod,retornoDelClick);
                  
-                 }
-                 function retornoDelClick(respuesta){
-                    alert(respuesta);
-                 }
-                 function enviarMensajeAlServidorPost(serviMod, funcionARealizar) {
-
-                    //declaro el objeto
-                    var xmlhttp = new XMLHttpRequest();
-                    var datos = new FormData();
-                    datos.append("id_pelicula",$("id_pelicula").value);
-                    
-                
-                    // indico hacia donde va el mensaje
-                    xmlhttp.open("POST", serviMod, true);
-                    //seteo el evento
-                    xmlhttp.onreadystatechange = function () {
-                        //Veo si llego la respuesta del servidor
-                        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-                            //Reviso si la respuesta es correcta
-                            if (xmlhttp.status == 200) {
-                                funcionARealizar(xmlhttp.responseText);
-                            }
-                            else {
-                                alert("ocurrio un error");
-                            }
-                        }
-                    
-                    }
-                
-                   
-                    xmlhttp.setRequestHeader("enctype", "multipart/form-data");
-                
-                    //envio el mensaje    
-                    xmlhttp.send(datos);
-                    } 
                 
         
     });
@@ -82,6 +44,29 @@ function cargarPeliculas(valor) {
     
     
 }
+function eliminarDato(idPelicula){
+    var eliminar = confirm('De verdad desea eliminar este dato?');
+    var eliminarProducto=document.getElementById('eliminarProducto').value;
+
+    if ( eliminar ) {
+          
+          $.ajax({
+            url: serviMod,
+            type: 'POST',
+            data: { 
+                id_pelicula: idPelicula,
+              
+            },
+         })
+         .done(function(response){
+            $("#result").html(response);
+         })
+         .fail(function(jqXHR){
+            console.log(jqXHR.statusText);
+         });
+         alert('El producto ha sido eliminado');
+    }
+} 
 
 function enviarMensajeAlServidor(servidor, funcionARealizar){
     var xmlhttp = new XMLHttpRequest();
