@@ -37,9 +37,10 @@ function cargarPeliculas(valor) {
                       '<div class="card" style="width: 12.5rem;background:#212121;color:white">'+
                         '<img src="'+element.imagen+'" class="card-img-top">'+
                         '<p><i class="fas fa-star"></i>'+element.puntaje+'</p>'+
-                        '<div class="card-body">'+
+                        '<div class="card-body" style="height:90px">'+
                            '<p align="center" class="card-text">'+element.titulo+'</p>'+
                            '<button style="float: left;margin: 5px;border-radius:30px" type="submit" name="titulo" class="btn btn-dark"><i class="fas fa-pencil-alt"></i></button>'+
+                           '<button style="float: left;margin: 5px;border-radius:30px" type="submit" name="titulo" class="btn btn-dark"><i class="fas fa-trash-alt"></i></button>'+
                         '</div>'+
                       '</div>'+
                   '</div>'
