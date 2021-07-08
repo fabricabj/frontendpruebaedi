@@ -1,7 +1,7 @@
 addEventListener("load", load);
 //llamo al servidor
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
-var serviMod = "https://backendpruebaedi.herokuapp.com/modificarpeliculas";
+var serviMod = "https://backendpruebaedi.herokuapp.com/eliminarpelicula";
 //var servi = "localhost:444/login";
 
 function $(demo){
