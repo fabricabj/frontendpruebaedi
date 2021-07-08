@@ -33,53 +33,50 @@ function cargarPeliculas(valor) {
                   '</div>'
 
                  );
-                 function eliminarDato(){
-                    var eliminar = confirm('De verdad desea eliminar este dato?');
-                
-                
-                    if ( eliminar ) {
-                          enviarMensajeAlServidorPost(serviDelete,retorno);
-                          function enviarMensajeAlServidorPost(serviDelete, funcionARealizar) {
-                
-                            //declaro el objeto
-                            var xmlhttp = new XMLHttpRequest();
-                            var datos = new FormData();
-                            datos.append("id_pelicula",$("id_pelicula").value);
-                        
-                            // indico hacia donde va el mensaje
-                            xmlhttp.open("POST", serviDelete, true);
-                            //seteo el evento
-                            xmlhttp.onreadystatechange = function () {
-                                //Veo si llego la respuesta del servidor
-                                if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-                                    //Reviso si la respuesta es correcta
-                                    if (xmlhttp.status == 200) {
-                                        funcionARealizar(xmlhttp.responseText);
-                                    }
-                                    else {
-                                        alert("ocurrio un error");
-                                    }
-                                }
-                            
-                            }
-                        
-                           
-                            xmlhttp.setRequestHeader("enctype", "multipart/form-data");
-                        
-                            //envio el mensaje    
-                            xmlhttp.send(datos);
-                            } 
-                        }
-                        function retorno(respuesta){
-                            alert(respuesta);
-                        }
-                } 
+                 
  
     });
     $('peliculas').innerHTML=todo;
     
     
 }
+function eliminarDato(){
+    var eliminar = confirm('De verdad desea eliminar este dato?');
+
+
+    if ( eliminar ) {
+          
+
+            //declaro el objeto
+            var xmlhttp = new XMLHttpRequest();
+            var datos = new FormData();
+            datos.append("id_pelicula",$("id_pelicula").value);
+        
+            // indico hacia donde va el mensaje
+            xmlhttp.open("POST", serviDelete, true);
+            //seteo el evento
+            xmlhttp.onreadystatechange = function () {
+                //Veo si llego la respuesta del servidor
+                if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                    //Reviso si la respuesta es correcta
+                    if (xmlhttp.status == 200) {
+                        alert("pelicula eliminada");
+                    }
+                    else {
+                        alert("ocurrio un error");
+                    }
+                }
+            
+            }
+        
+           
+            xmlhttp.setRequestHeader("enctype", "multipart/form-data");
+        
+            //envio el mensaje    
+            xmlhttp.send(datos);
+            } 
+        }
+
 
 
 function enviarMensajeAlServidor(servidor, funcionARealizar){
