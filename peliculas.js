@@ -33,7 +33,8 @@ function cargarPeliculas(valor) {
     peliculas.forEach(element => {
         opciones.push(element.titulo);
     });
-    alert(opciones);
+    //alert(opciones);
+    $('peliculas').innerHTML=opciones;
     
     
 }
