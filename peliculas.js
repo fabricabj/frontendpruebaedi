@@ -27,7 +27,7 @@ function cargarPeliculas(valor) {
                         '<p><i class="fas fa-star"></i>'+element.puntaje+'</p>'+
                         '<div class="card-body" style="height:150px">'+
                            '<p align="center" class="card-text">'+element.titulo+'</p>'+
-                           '<input class="form-control" type="text" id="id_pelicula" name="id_pelicula" value="'+element.id_pelicula+'" hidden>'+
+                           '<input class="form-control" type="text" id="id_pelicula" name="id_pelicula" value="'+element.id_pelicula+'">'+
                            '<a style="float: left;margin: 5px;border-radius:30px" href="modificarpeliculas.html" id="modificar" class="btn btn-dark"><i class="fas fa-pencil-alt"></i></a>'+
                            '<a style="text-decoration:underline;cursor:pointer; float: left;margin-right:5px;border-radius:30px;margin-top: 2%" class="btn btn-light card-text" href="#" onclick="eliminarDato('+element.id_pelicula+')"><i class="fas fa-trash-alt"></i></a>'+
                         '</div>'+
