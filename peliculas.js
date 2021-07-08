@@ -28,12 +28,21 @@ function cargarPeliculas(valor) {
 
    // alert(valor)
     var peliculas = JSON.parse(valor);
-    peliculas.sort(function (x, y) { return x.titulo.localeCompare(y.titulo); return x.imagen.localeCompare(y.imagen)});
+    peliculas.sort(function (x, y) { return x.titulo.localeCompare(y.titulo); return x.imagen.localeCompare(y.imagen);return x.puntaje.localeCompare(y.puntaje)});
     var todo=[];
     var titulos = []
     var imagenes = []
     peliculas.forEach(element => {
-        todo.push('<div class="col-md-3"><img src="'+element.imagen+'"><p>'+element.titulo+'</p></div>');
+        todo.push('<div class="col-md-3">'+
+                      '<div class="card" style="width: 12.5rem;background:#212121;color:white">'+
+                        '<img src="'+element.imagen+'" class="card-img-top">'+
+                        '<p><i class="fas fa-star"></i>'+element.puntaje+'</p>'+
+                        '<div class="card-body" style="height:70px">'+
+                           '<p align="center" class="card-text">'+element.titulo+'</p>'+
+                        '</div>'+
+                      '</div>'+
+                  '</div>'
+                 );
         
     });
     //alert(opciones);
