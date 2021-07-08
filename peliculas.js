@@ -1,6 +1,7 @@
 addEventListener("load", load);
 //llamo al servidor
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
+var serviDelet = "https://backendpruebaedi.herokuapp.com/eliminarpelicula";
 //var servi = "localhost:444/login";
 
 function $(demo){
@@ -46,7 +47,7 @@ function eliminarDato(idPelicula){
     var id=document.getElementById('eliminar_pelicula').value;
 
     if ( eliminar ) {
-          alert(id);
+         enviarMensajeAlServidorPost(serviDelet, funcionARealizar);
     }
 } 
 
@@ -70,6 +71,37 @@ function enviarMensajeAlServidor(servidor, funcionARealizar){
     xmlhttp.send();    
 }
 
+function enviarMensajeAlServidorPost(serviDelet, funcionARealizar) {
+
+    //declaro el objeto
+    var xmlhttp = new XMLHttpRequest();
+    var datos = new FormData();
+    datos.append("id_pelicula",$("id_pelicula").value);
+    
+
+    // indico hacia donde va el mensaje
+    xmlhttp.open("POST", serviDelet, true);
+    //seteo el evento
+    xmlhttp.onreadystatechange = function () {
+        //Veo si llego la respuesta del servidor
+        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+            //Reviso si la respuesta es correcta
+            if (xmlhttp.status == 200) {
+                funcionARealizar(xmlhttp.responseText);
+            }
+            else {
+                alert("ocurrio un error");
+            }
+        }
+    
+    }
+
+   
+    xmlhttp.setRequestHeader("enctype", "multipart/form-data");
+
+    //envio el mensaje    
+    xmlhttp.send(datos);
+} 
 
 
 
