@@ -40,7 +40,6 @@ function cargarPeliculas(valor) {
                         '<div class="card-body" style="height:70px">'+
                            '<p align="center" class="card-text">'+element.titulo+'</p>'+
                         '</div>'+
-                        '<br>'+
                         '<div>'+
                             '<button style="float: left;margin: 5px;border-radius:30px" type="submit" name="titulo"><i class="fas fa-pencil-alt"></i></button>'+
                         '<div>'+
