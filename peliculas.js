@@ -49,22 +49,7 @@ function eliminarDato(idPelicula){
     var eliminarProducto=document.getElementById('eliminarProducto').value;
 
     if ( eliminar ) {
-          
-          $.ajax({
-            url: serviMod,
-            type: 'POST',
-            data: { 
-                id_pelicula: idPelicula,
-              
-            },
-         })
-         .done(function(response){
-            $("#result").html(response);
-         })
-         .fail(function(jqXHR){
-            console.log(jqXHR.statusText);
-         });
-         alert('El producto ha sido eliminado');
+          alert(idPelicula);
     }
 } 
 
