@@ -48,6 +48,35 @@ function eliminarDato(idPelicula){
 
     if ( eliminar ) {
          enviarMensajeAlServidorPost(serviDelet, funcionARealizar);
+         function enviarMensajeAlServidorPost(serviDelet, funcionARealizar) {
+
+            //declaro el objeto
+            var xmlhttp = new XMLHttpRequest();
+            
+        
+            // indico hacia donde va el mensaje
+            xmlhttp.open("POST", serviDelet, true);
+            //seteo el evento
+            xmlhttp.onreadystatechange = function () {
+                //Veo si llego la respuesta del servidor
+                if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                    //Reviso si la respuesta es correcta
+                    if (xmlhttp.status == 200) {
+                        funcionARealizar(xmlhttp.responseText);
+                    }
+                    else {
+                        alert("ocurrio un error");
+                    }
+                }
+            
+            }
+        
+           
+            xmlhttp.setRequestHeader("enctype", "multipart/form-data");
+        
+            //envio el mensaje    
+            xmlhttp.send(idPelicula);
+        }
     }
 } 
 
@@ -71,37 +100,7 @@ function enviarMensajeAlServidor(servidor, funcionARealizar){
     xmlhttp.send();    
 }
 
-function enviarMensajeAlServidorPost(serviDelet, funcionARealizar) {
-
-    //declaro el objeto
-    var xmlhttp = new XMLHttpRequest();
-    var datos = new FormData();
-    datos.append("id_pelicula",$("id_pelicula").value);
-    
-
-    // indico hacia donde va el mensaje
-    xmlhttp.open("POST", serviDelet, true);
-    //seteo el evento
-    xmlhttp.onreadystatechange = function () {
-        //Veo si llego la respuesta del servidor
-        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-            //Reviso si la respuesta es correcta
-            if (xmlhttp.status == 200) {
-                funcionARealizar(xmlhttp.responseText);
-            }
-            else {
-                alert("ocurrio un error");
-            }
-        }
-    
-    }
-
-   
-    xmlhttp.setRequestHeader("enctype", "multipart/form-data");
-
-    //envio el mensaje    
-    xmlhttp.send(datos);
-} 
+ 
 
 
 
