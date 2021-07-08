@@ -52,7 +52,7 @@ function eliminarDato(idPelicula){
             
         
             // indico hacia donde va el mensaje
-            xmlhttp.open("POST", serviDelete, true);
+            xmlhttp.open("POST", serviDelete, false);
             //seteo el evento
             xmlhttp.onreadystatechange = function () {
                 //Veo si llego la respuesta del servidor
