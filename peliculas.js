@@ -1,7 +1,7 @@
 addEventListener("load", load);
 //llamo al servidor
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
-var serviMod = "https://backendpruebaedi.herokuapp.com/eliminarpelicula";
+var serviMod = "https://backendpruebaedi.herokuapp.com/modificarpeliculas";
 //var servi = "localhost:444/login";
 
 function $(demo){
@@ -48,20 +48,31 @@ function eliminarDato(idPelicula){
     var eliminar = confirm('De verdad desea eliminar este dato?');
     var eliminarProducto=document.getElementById('eliminarProducto').value;
 
-    if ( eliminar ) { 
-        enviarMensajeAlServidorPost(servi,idPelicula);
+    if ( eliminar ) {
+          
+          $.ajax({
+            url: serviMod,
+            type: 'POST',
+            data: { 
+                id_pelicula: idPelicula,
+              
+            },
+         })
+         .done(function(response){
+            $("#result").html(response);
+         })
+         .fail(function(jqXHR){
+            console.log(jqXHR.statusText);
+         });
+         alert('El producto ha sido eliminado');
     }
 } 
-function retornoDelClick(respuesta){
-    alert(respuesta);
-}
 
-
-function enviarMensajeAlServidor(servi, funcionARealizar){
+function enviarMensajeAlServidor(servidor, funcionARealizar){
     var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("GET",servi,true);
-
+    xmlhttp.open("GET",servidor,true);
+   
     xmlhttp.onreadystatechange = function(){
 
         if(xmlhttp.readyState == XMLHttpRequest.DONE){
@@ -77,39 +88,6 @@ function enviarMensajeAlServidor(servi, funcionARealizar){
     xmlhttp.send();    
 }
 
-
-
-
-function enviarMensajeAlServidorPost(servidor, idPelicula) {
-
-    //declaro el objeto
-    var xmlhttp = new XMLHttpRequest();
-    var datos = idPelicula;
-    
-
-    // indico hacia donde va el mensaje
-    xmlhttp.open("POST", serviMod, true);
-    //seteo el evento
-    xmlhttp.onreadystatechange = function () {
-        //Veo si llego la respuesta del servidor
-        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-            //Reviso si la respuesta es correcta
-            if (xmlhttp.status == 200) {
-                alert("ELIMINADO");
-            }
-            else {
-                alert("ocurrio un error");
-            }
-        }
-    
-    }
-
-   
-    xmlhttp.setRequestHeader("enctype", "multipart/form-data");
-
-    //envio el mensaje    
-    xmlhttp.send(datos);
-    } 
 
 
 
