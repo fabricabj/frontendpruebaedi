@@ -33,8 +33,8 @@ function cargarPeliculas(valor) {
     var titulos = []
     var imagenes = []
     peliculas.forEach(element => {
-        todo+=titulos.push('<p>'+element.titulo+'</p>');
-        todo+=imagenes.push('<img src="'+element.imagen+'">');
+        todo.push('<img src="'+element.imagen+'"><p>'+element.titulo+'</p>');
+        
     });
     //alert(opciones);
     $('peliculas').innerHTML="<div class='row'><div class='col-md-3'>"+todo+"</div></div>";
