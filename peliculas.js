@@ -34,9 +34,7 @@ function cargarPeliculas(valor) {
                   '</div>'
 
                  );
-                 
-                
-        
+ 
     });
     //alert(opciones);
     $('peliculas').innerHTML=todo;
@@ -45,10 +43,10 @@ function cargarPeliculas(valor) {
 }
 function eliminarDato(idPelicula){
     var eliminar = confirm('De verdad desea eliminar este dato?');
-    var eliminarProducto=document.getElementById('eliminarProducto').value;
+    var id=document.getElementById('eliminar_pelicula').value;
 
     if ( eliminar ) {
-          alert(idPelicula);
+          alert(id);
     }
 } 
 
