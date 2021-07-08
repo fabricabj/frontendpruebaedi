@@ -1,6 +1,7 @@
 addEventListener("load", load);
 //llamo al servidor
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
+var serviMod = "https://backendpruebaedi.herokuapp.com/modificarpeliculas";
 //var servi = "localhost:444/login";
 
 function $(demo){
@@ -11,22 +12,11 @@ function $(demo){
 
 function load(){
     enviarMensajeAlServidor(servidor , cargarPeliculas);
-    //$("peliculas").addEventListener("change", mostrarPeliculas);
-    //$("#peliculas").innerHTML=$("peliculas").value;
-
 
 }
 
-/*function mostrarPeliculas() {
-    var valorPelicula = $("peliculas").value;
-    
-    document.getElementById('peliculas').innerHTML=valorPelicula;
-}*/
 function cargarPeliculas(valor) {
-    /*var mostrar=document.getElementById('peliculas');
-    mostrar.innerHTML="<div class='box2'>"+valor+"</div>";*/
 
-   // alert(valor)
     var peliculas = JSON.parse(valor);
     //peliculas.sort(function (x, y) { return x.titulo.localeCompare(y.titulo); return x.imagen.localeCompare(y.imagen);return x.puntaje.localeCompare(y.puntaje)});
     var todo=[];
@@ -37,13 +27,54 @@ function cargarPeliculas(valor) {
                         '<p><i class="fas fa-star"></i>'+element.puntaje+'</p>'+
                         '<div class="card-body" style="height:150px">'+
                            '<p align="center" class="card-text">'+element.titulo+'</p>'+
-                           '<button style="float: left;margin: 5px;border-radius:30px" type="submit" name="'+element.id_pelicula+'" id="modificar" class="btn btn-dark"><i class="fas fa-pencil-alt"></i></button>'+
+                           '<input class="form-control" type="text" id="id_pelicula" name="id_pelicula" value="'+element.id_pelicula+'" hidden>'+
+                           '<a style="float: left;margin: 5px;border-radius:30px" href="modificarpeliculas.html" id="modificar" class="btn btn-dark"><i class="fas fa-pencil-alt"></i></a>'+
                            '<button style="float: left;margin: 5px;border-radius:30px" type="submit" name="'+element.id_pelicula+'" id="eliminar" class="btn btn-dark"><i class="fas fa-trash-alt"></i></button>'+
                         '</div>'+
                       '</div>'+
                   '</div>'
 
                  );
+                 document.getElementById("modificar").addEventListener("click", click);
+                 function click(){
+                    enviarMensajeAlServidorPost(serviMod,retornoDelClick);
+                 
+                 }
+                 function retornoDelClick(respuesta){
+                    alert(respuesta);
+                 }
+                 function enviarMensajeAlServidorPost(serviMod, funcionARealizar) {
+
+                    //declaro el objeto
+                    var xmlhttp = new XMLHttpRequest();
+                    var datos = new FormData();
+                    datos.append("id_pelicula",$("id_pelicula").value);
+                    
+                
+                    // indico hacia donde va el mensaje
+                    xmlhttp.open("POST", serviMod, true);
+                    //seteo el evento
+                    xmlhttp.onreadystatechange = function () {
+                        //Veo si llego la respuesta del servidor
+                        if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                            //Reviso si la respuesta es correcta
+                            if (xmlhttp.status == 200) {
+                                funcionARealizar(xmlhttp.responseText);
+                            }
+                            else {
+                                alert("ocurrio un error");
+                            }
+                        }
+                    
+                    }
+                
+                   
+                    xmlhttp.setRequestHeader("enctype", "multipart/form-data");
+                
+                    //envio el mensaje    
+                    xmlhttp.send(datos);
+                    } 
+                
         
     });
     //alert(opciones);
