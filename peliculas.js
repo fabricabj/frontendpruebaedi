@@ -43,6 +43,7 @@ function cargarPeliculas(valor) {
                         '<br>'+
                         '<div>'+
                             '<button style="float: left;margin: 5px;border-radius:30px" type="submit" name="titulo"><i class="fas fa-pencil-alt"></i></button>'+
+                        '<div>'+
                       '</div>'+
                   '</div>'
                  );
