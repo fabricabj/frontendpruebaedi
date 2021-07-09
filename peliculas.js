@@ -79,11 +79,10 @@ function eliminarDato(id){
 function formMod(id){
 
         var xmlhttp = new XMLHttpRequest();
-        var datos = new FormData();
-        datos.append("id_pelicula",id);
+       
     
         // indico hacia donde va el mensaje
-        xmlhttp.open("GET", serviFormMod, false);
+        xmlhttp.open("GET", serviFormMod+"?id="+id, true);
         //seteo el evento
         xmlhttp.onreadystatechange = function () {
             //Veo si llego la respuesta del servidor
@@ -103,7 +102,7 @@ function formMod(id){
         xmlhttp.setRequestHeader("enctype", "multipart/form-data");
     
         //envio el mensaje    
-        xmlhttp.send(datos);
+        xmlhttp.send();
 }
         
 
