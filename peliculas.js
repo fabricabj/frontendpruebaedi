@@ -84,8 +84,8 @@ function formMod(id){
     function retornoDelClick(respuesta){
         $('peliculas').hidden=true;
         var peliculas = JSON.parse(respuesta);
-    var todo=[];
-    peliculas.forEach(element => {
+        var todo=[];
+        peliculas.forEach(element => {
         todo.push('<div class="col-md-3"  style="padding:1%;">'+
                       '<div class="card" style="width: 12.5rem;background:#212121;color:white">'+
                         '<img src="'+element.imagen+'" class="card-img-top">'+
@@ -103,7 +103,7 @@ function formMod(id){
                  
  
     });
-    $('peliculas').innerHTML=todo;
+    $('form').innerHTML=todo;
     }
 
     function enviarMensajeAlServidorPost(serviFormMod, funcionARealizar){
