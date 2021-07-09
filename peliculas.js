@@ -27,12 +27,21 @@ function cargarPeliculas(valor) {
                            '<p align="center" class="card-text">'+element.titulo+'</p>'+
                            '<input class="form-control" type="text" id="id_pelicula" name="id_pelicula" value="'+element.id_pelicula+'" hidden>'+
                            '<a style="float: left;margin: 5px;border-radius:30px" href="modificarpeliculas.html" id="modificar" class="btn btn-dark"><i class="fas fa-pencil-alt"></i></a>'+
-                           '<button type="submit" style="text-decoration:underline;cursor:pointer; float: left;margin-right:5px;border-radius:30px;margin-top: 2%" class="btn btn-light card-text" onclick="eliminarDato()"><i class="fas fa-trash-alt"></i></button>'+
+                           '<button type="submit" style="text-decoration:underline;cursor:pointer; float: left;margin-right:5px;border-radius:30px;margin-top: 2%" class="btn btn-light card-text" onclick="eliminarDato('+element.id_pelicula+')"><i class="fas fa-trash-alt"></i></button>'+
                         '</div>'+
                       '</div>'+
                   '</div>'
 
                  );
+                 function eliminarDato(id){
+                    var eliminar = confirm('De verdad desea eliminar este dato?');
+                
+                
+                    if ( eliminar ) {
+                          
+                         alert(id);
+                        }
+                }
                  
  
     });
@@ -40,42 +49,7 @@ function cargarPeliculas(valor) {
     
     
 }
-function eliminarDato(){
-    var eliminar = confirm('De verdad desea eliminar este dato?');
 
-
-    if ( eliminar ) {
-          
-
-            //declaro el objeto
-            var xmlhttp = new XMLHttpRequest();
-            var datos = new FormData();
-            datos.append("id_pelicula",$("id_pelicula").value);
-        
-            // indico hacia donde va el mensaje
-            xmlhttp.open("POST", serviDelete, true);
-            //seteo el evento
-            xmlhttp.onreadystatechange = function () {
-                //Veo si llego la respuesta del servidor
-                if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-                    //Reviso si la respuesta es correcta
-                    if (xmlhttp.status == 200) {
-                        alert("pelicula eliminada");
-                    }
-                    else {
-                        alert("ocurrio un error");
-                    }
-                }
-            
-            }
-        
-           
-            xmlhttp.setRequestHeader("enctype", "multipart/form-data");
-        
-            //envio el mensaje    
-            xmlhttp.send(datos);
-            } 
-        }
 
 
 
