@@ -33,15 +33,6 @@ function cargarPeliculas(valor) {
                   '</div>'
 
                  );
-                 function eliminarDato(id){
-                    var eliminar = confirm('De verdad desea eliminar este dato?');
-                
-                
-                    if ( eliminar ) {
-                          
-                         alert(id);
-                        }
-                }
                  
  
     });
@@ -49,7 +40,15 @@ function cargarPeliculas(valor) {
     
     
 }
+function eliminarDato(id){
+    var eliminar = confirm('De verdad desea eliminar este dato?');
 
+
+    if ( eliminar ) {
+          
+         alert(id);
+        }
+}
 
 
 
