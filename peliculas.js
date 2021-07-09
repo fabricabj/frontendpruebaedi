@@ -47,7 +47,8 @@ function eliminarDato(id){
     if ( eliminar ) {
           
         var xmlhttp = new XMLHttpRequest();
-       
+        var datos = new FormData();
+        datos.append("id_pelicula",id);
     
         // indico hacia donde va el mensaje
         xmlhttp.open("POST", serviDelete, true);
@@ -70,7 +71,7 @@ function eliminarDato(id){
         xmlhttp.setRequestHeader("enctype", "multipart/form-data");
     
         //envio el mensaje    
-        xmlhttp.send(id);
+        xmlhttp.send(datos);
         }
         
 }
