@@ -77,7 +77,15 @@ function eliminarDato(id){
         
 }
 function formMod(id){
+    enviarMensajeAlServidorPost(serviFormMod,retornoDelClick);
 
+
+
+    function retornoDelClick(respuesta){
+        alert(respuesta);
+    }
+
+    function enviarMensajeAlServidorPost(serviFormMod, funcionARealizar){
         var xmlhttp = new XMLHttpRequest();
         var datos = new FormData();
         datos.append("id_pelicula",id);
@@ -90,7 +98,7 @@ function formMod(id){
             if (xmlhttp.readyState == XMLHttpRequest.DONE) {
                 //Reviso si la respuesta es correcta
                 if (xmlhttp.status == 200) {
-                    alert("eliminado");
+                    funcionARealizar(xmlhttp.responseText);
                 }
                 else {
                     alert("ocurrio un error");
@@ -106,7 +114,7 @@ function formMod(id){
         xmlhttp.send(datos);
 }
         
-
+}
 
 
 
