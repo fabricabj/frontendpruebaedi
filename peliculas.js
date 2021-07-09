@@ -82,7 +82,7 @@ function formMod(id){
 
 
     function retornoDelClick(respuesta){
-        $('pelicula').hidden=true;
+        $('peliculas').hidden=true;
         alert(respuesta);
     }
 
