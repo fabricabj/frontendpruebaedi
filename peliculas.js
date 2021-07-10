@@ -82,7 +82,7 @@ function formMod(id){
 
 
     function retornoDelClick(respuesta){
-        //$('peliculas').hidden=true;
+        $('peliculas').hidden=true;
       
         var peliculas = JSON.parse(respuesta);
         var todo=[];
