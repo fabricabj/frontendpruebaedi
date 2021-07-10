@@ -82,7 +82,7 @@ function formMod(id){
 
 
     function retornoDelClick(respuesta){
-        $('peliculas').hidden=true;
+        //$('peliculas').hidden=true;
         alert(respuesta);
         var peliculas = JSON.parse(respuesta);
         var todo=[];
@@ -121,7 +121,7 @@ function formMod(id){
                             '<textarea type="text" class="form-control" name="descripcion" id="descripcion" value="'+element.descripcion+'"></textarea>'+
                         '</div>'+
                         '<div class="form-group">'+
-                           '<button type="submit" name="modificar" id="modificar" class="btn btn-primary">Modificar</button>'+
+                           '<button type="submit" name="modificar" id="modificar" class="btn btn-dark" onclick="modificarDato('+element.id_pelicula+')">Modificar</button>'+
                         '</div>'+
                 '</div>'
                  );
@@ -129,6 +129,7 @@ function formMod(id){
  
     });
     $('form').innerHTML=todo;
+    window.location.href="ModificarPelicula.html";
     }
 
     function enviarMensajeAlServidorPost(serviFormMod, funcionARealizar){
