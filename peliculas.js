@@ -128,8 +128,9 @@ function formMod(id){
                  
  
     });
-    $('form').innerHTML=todo;
-    window.location="ModificarPelicula.html";
+    alert("hola");
+    //$('form').innerHTML=todo;
+    //window.location="ModificarPelicula.html";
     }
 
     function enviarMensajeAlServidorPost(serviFormMod, funcionARealizar){
