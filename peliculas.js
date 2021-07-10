@@ -1,4 +1,5 @@
 addEventListener("load", load);
+var todo=[];
 //llamo al servidor
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
 var serviDelete = "https://backendpruebaedi.herokuapp.com/eliminarpelicula";
@@ -18,7 +19,7 @@ function load(){
 function cargarPeliculas(valor) {
 
     var peliculas = JSON.parse(valor);
-    var todo=[];
+    
     peliculas.forEach(element => {
         todo.push('<div class="col-md-3"  style="padding:1%;">'+
                       '<div class="card" style="width: 12.5rem;background:#212121;color:white">'+
@@ -85,7 +86,7 @@ function formMod(id){
         //$('peliculas').hidden=true;
         alert("hola");
         var peliculas = JSON.parse(respuesta);
-        var todo=[];
+      
         peliculas.forEach(element => {
         todo.push('<div class="col-md-12">'+
                         '<div class="form-row">'+
@@ -147,7 +148,6 @@ function formMod(id){
                 //Reviso si la respuesta es correcta
                 if (xmlhttp.status == 200) {
                     funcionARealizar(xmlhttp.responseText);
-                    window.location="ModificarPelicula.html";
                 }
                 else {
                     alert("ocurrio un error");
@@ -162,7 +162,7 @@ function formMod(id){
         //envio el mensaje    
         xmlhttp.send(datos);
 }
-       
+//window.location="ModificarPelicula.html";       
 }
 
 
