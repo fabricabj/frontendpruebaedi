@@ -129,7 +129,7 @@ function formMod(id){
  
     });
     $('form').innerHTML=todo;
-    window.location.href="ModificarPelicula.html";
+    window.location="ModificarPelicula.html";
     }
 
     function enviarMensajeAlServidorPost(serviFormMod, funcionARealizar){
