@@ -1,6 +1,4 @@
 addEventListener("load", load);
-addEventListener("load", load2);
-var todo=[];
 //llamo al servidor
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
 var serviDelete = "https://backendpruebaedi.herokuapp.com/eliminarpelicula";
@@ -14,17 +12,13 @@ function $(demo){
 
 function load(){
     enviarMensajeAlServidor(servidor , cargarPeliculas);
-
-}
-function load2(){
-    $('form').innerHTML=todo;
-
+    
 }
 
 function cargarPeliculas(valor) {
 
     var peliculas = JSON.parse(valor);
-    
+    var todo=[];
     peliculas.forEach(element => {
         todo.push('<div class="col-md-3"  style="padding:1%;">'+
                       '<div class="card" style="width: 12.5rem;background:#212121;color:white">'+
@@ -84,14 +78,19 @@ function eliminarDato(id){
 }
 function formMod(id){
     enviarMensajeAlServidorPost(serviFormMod,retornoDelClick);
+    enviarMensajeAlServidor2(serviFormMod , mostrarform);
+    function mostrarform(valor) {
 
-
+        alert(valor);
+        
+        
+    }
 
     function retornoDelClick(respuesta){
         //$('peliculas').hidden=true;
         alert("hola");
         var peliculas = JSON.parse(respuesta);
-      
+        var todo=[];
         peliculas.forEach(element => {
         todo.push('<div class="col-md-12">'+
                         '<div class="form-row">'+
@@ -135,8 +134,27 @@ function formMod(id){
  
     });
     
+    //$('form').innerHTML=todo;
+    //window.location="ModificarPelicula.html";
+    }
+    function enviarMensajeAlServidor2(serviFormMod, funcionARealizar){
+        var xmlhttp = new XMLHttpRequest();
     
+        xmlhttp.open("GET",serviFormMod,true);
+       
+        xmlhttp.onreadystatechange = function(){
     
+            if(xmlhttp.readyState == XMLHttpRequest.DONE){
+                if(xmlhttp.status == 200){
+                    console.log(xmlhttp.response);
+                    funcionARealizar(xmlhttp.responseText);
+                }else{
+                    alert("Ocurrio un error");
+                }
+            }
+    
+        }
+        xmlhttp.send();    
     }
 
     function enviarMensajeAlServidorPost(serviFormMod, funcionARealizar){
@@ -167,7 +185,7 @@ function formMod(id){
         //envio el mensaje    
         xmlhttp.send(datos);
 }
-//window.location="ModificarPelicula.html";       
+        
 }
 
 
