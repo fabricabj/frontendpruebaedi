@@ -3,6 +3,7 @@ addEventListener("load", load);
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
 var serviDelete = "https://backendpruebaedi.herokuapp.com/eliminarpelicula";
 serviFormMod = "https://backendpruebaedi.herokuapp.com/FormModPelicula";
+ModPelicula = "https://backendpruebaedi.herokuapp.com/ModPelicula";
 
 function $(demo){
     return document.getElementById(demo);
@@ -78,7 +79,7 @@ function eliminarDato(id){
 }
 function formMod(id){
     enviarMensajeAlServidorPost(serviFormMod,retornoDelClick);
-    enviarMensajeAlServidor2(serviFormMod , mostrarform);
+    enviarMensajeAlServidor2(ModPelicula , mostrarform);
     function mostrarform(valor) {
 
         alert(valor);
@@ -140,7 +141,7 @@ function formMod(id){
     function enviarMensajeAlServidor2(serviFormMod, funcionARealizar){
         var xmlhttp = new XMLHttpRequest();
     
-        xmlhttp.open("GET",serviFormMod,true);
+        xmlhttp.open("GET",ModPelicula,true);
        
         xmlhttp.onreadystatechange = function(){
     
