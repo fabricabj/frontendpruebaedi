@@ -3,7 +3,6 @@ addEventListener("load", load);
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
 var serviDelete = "https://backendpruebaedi.herokuapp.com/eliminarpelicula";
 serviFormMod = "https://backendpruebaedi.herokuapp.com/FormModPelicula";
-ModPelicula = "https://backendpruebaedi.herokuapp.com/ModPelicula";
 
 function $(demo){
     return document.getElementById(demo);
@@ -13,7 +12,7 @@ function $(demo){
 
 function load(){
     enviarMensajeAlServidor(servidor , cargarPeliculas);
-    
+
 }
 
 function cargarPeliculas(valor) {
@@ -79,12 +78,12 @@ function eliminarDato(id){
 }
 function formMod(id){
     enviarMensajeAlServidorPost(serviFormMod,retornoDelClick);
-    enviarMensajeAlServidor2(ModPelicula , mostrarform);
-    
+
+
 
     function retornoDelClick(respuesta){
         //$('peliculas').hidden=true;
-        alert("hola");
+      
         var peliculas = JSON.parse(respuesta);
         var todo=[];
         peliculas.forEach(element => {
@@ -130,33 +129,8 @@ function formMod(id){
  
     });
     
-    //$('form').innerHTML=todo;
+    $('form').innerHTML=todo;
     //window.location="ModificarPelicula.html";
-    }
-    function mostrarform(valor) {
-
-        alert(valor);
-        
-        
-    }
-    function enviarMensajeAlServidor2(ModPelicula, funcionARealizar){
-        var xmlhttp = new XMLHttpRequest();
-    
-        xmlhttp.open("GET",ModPelicula,true);
-       
-        xmlhttp.onreadystatechange = function(){
-    
-            if(xmlhttp.readyState == XMLHttpRequest.DONE){
-                if(xmlhttp.status == 200){
-                    console.log(xmlhttp.response);
-                    funcionARealizar(xmlhttp.responseText);
-                }else{
-                    alert("Ocurrio un error");
-                }
-            }
-    
-        }
-        xmlhttp.send();    
     }
 
     function enviarMensajeAlServidorPost(serviFormMod, funcionARealizar){
