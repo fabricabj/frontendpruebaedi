@@ -167,7 +167,7 @@ function formMod(id){
         //envio el mensaje    
         xmlhttp.send(datos);
 }
-window.location="ModificarPelicula.html";       
+//window.location="ModificarPelicula.html";       
 }
 
 
