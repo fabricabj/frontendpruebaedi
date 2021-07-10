@@ -2,7 +2,7 @@ addEventListener("load", load);
 //llamo al servidor
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
 var serviDelete = "https://backendpruebaedi.herokuapp.com/eliminarpelicula";
-serviFormMod = "https://backendpruebaedi.herokuapp.com/FormModPelicula";
+var serviFormMod = "https://backendpruebaedi.herokuapp.com/FormModPelicula";
 
 function $(demo){
     return document.getElementById(demo);
