@@ -147,6 +147,7 @@ function formMod(id){
                 //Reviso si la respuesta es correcta
                 if (xmlhttp.status == 200) {
                     funcionARealizar(xmlhttp.responseText);
+                    window.location="ModificarPelicula.html";
                 }
                 else {
                     alert("ocurrio un error");
@@ -161,7 +162,7 @@ function formMod(id){
         //envio el mensaje    
         xmlhttp.send(datos);
 }
-window.location="ModificarPelicula.html";       
+       
 }
 
 
