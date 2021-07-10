@@ -1,4 +1,5 @@
 addEventListener("load", load);
+addEventListener("load", load2);
 var todo=[];
 //llamo al servidor
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
@@ -13,6 +14,10 @@ function $(demo){
 
 function load(){
     enviarMensajeAlServidor(servidor , cargarPeliculas);
+
+}
+function load2(){
+    $('form').innerHTML=todo;
 
 }
 
@@ -130,7 +135,7 @@ function formMod(id){
  
     });
     
-    $('form').innerHTML=todo;
+    
     
     }
 
@@ -162,7 +167,7 @@ function formMod(id){
         //envio el mensaje    
         xmlhttp.send(datos);
 }
-//window.location="ModificarPelicula.html";       
+window.location="ModificarPelicula.html";       
 }
 
 
