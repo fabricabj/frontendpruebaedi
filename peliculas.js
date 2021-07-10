@@ -130,7 +130,7 @@ function formMod(id){
     });
     
     $('form').innerHTML=todo;
-    window.location="ModificarPelicula.html";
+    
     }
 
     function enviarMensajeAlServidorPost(serviFormMod, funcionARealizar){
@@ -161,7 +161,7 @@ function formMod(id){
         //envio el mensaje    
         xmlhttp.send(datos);
 }
-        
+window.location="ModificarPelicula.html";       
 }
 
 
