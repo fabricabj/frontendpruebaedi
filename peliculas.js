@@ -83,7 +83,7 @@ function formMod(id){
 
     function retornoDelClick(respuesta){
         //$('peliculas').hidden=true;
-        alert("hola");
+        alert(respuesta);
         var peliculas = JSON.parse(respuesta);
         var todo=[];
         peliculas.forEach(element => {
@@ -129,8 +129,8 @@ function formMod(id){
  
     });
     
-    //$('form').innerHTML=todo;
-    //window.location="ModificarPelicula.html";
+    $('form').innerHTML=todo;
+    window.location.href="ModificarPelicula.html";
     }
 
     function enviarMensajeAlServidorPost(serviFormMod, funcionARealizar){
