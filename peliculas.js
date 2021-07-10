@@ -80,12 +80,7 @@ function eliminarDato(id){
 function formMod(id){
     enviarMensajeAlServidorPost(serviFormMod,retornoDelClick);
     enviarMensajeAlServidor2(ModPelicula , mostrarform);
-    function mostrarform(valor) {
-
-        alert(valor);
-        
-        
-    }
+    
 
     function retornoDelClick(respuesta){
         //$('peliculas').hidden=true;
@@ -138,7 +133,13 @@ function formMod(id){
     //$('form').innerHTML=todo;
     //window.location="ModificarPelicula.html";
     }
-    function enviarMensajeAlServidor2(serviFormMod, funcionARealizar){
+    function mostrarform(valor) {
+
+        alert(valor);
+        
+        
+    }
+    function enviarMensajeAlServidor2(ModPelicula, funcionARealizar){
         var xmlhttp = new XMLHttpRequest();
     
         xmlhttp.open("GET",ModPelicula,true);
