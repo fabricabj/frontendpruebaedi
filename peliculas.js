@@ -3,6 +3,7 @@ addEventListener("load", load);
 var servidor = "https://backendpruebaedi.herokuapp.com/peliculas";
 var serviDelete = "https://backendpruebaedi.herokuapp.com/eliminarpelicula";
 var serviFormMod = "https://backendpruebaedi.herokuapp.com/FormModPelicula";
+var serviModPelicula = "https://backendpruebaedi.herokuapp.com/modificarpelicula";
 
 function $(demo){
     return document.getElementById(demo);
@@ -118,19 +119,19 @@ function formMod(id){
                         '</div>'+
                         '<div class="form-group">'+
                             '<label for="inputEmail4">Descripcion</label>'+
-                            '<textarea type="text" class="form-control" name="descripcion" id="descripcion" value="'+element.descripcion+'"></textarea>'+
+                            '<textarea type="text" class="form-control" name="descripcion" id="descripcion" value="'+element.descripcion+'">'+element.descripcion+'</textarea>'+
                         '</div>'+
                         '<div class="form-group">'+
-                           '<button type="submit" name="modificar" id="modificar" class="btn btn-dark" onclick="modificarDato('+element.id_pelicula+')">Modificar</button>'+
+                           '<button type="submit" name="modificar" id="modificar" class="btn btn-dark" onclick="modificarDato('+element.id_pelicula+','+$("titulo").value+','+$("anio").value+','+$("duracion").value+','+$("puntaje").value+','+$("imagen").value+','+$("trailer").value+','+$("descripcion").value+')">Modificar</button>'+
                         '</div>'+
                 '</div>'
                  );
                  
  
-    });
+        });
     
-    $('form').innerHTML=todo;
-    //window.location="ModificarPelicula.html";
+        $('form').innerHTML=todo;
+        //window.location="ModificarPelicula.html";
     }
 
     function enviarMensajeAlServidorPost(serviFormMod, funcionARealizar){
@@ -160,10 +161,55 @@ function formMod(id){
     
         //envio el mensaje    
         xmlhttp.send(datos);
-}
+     }
         
 }
+function modificarDato(id,titulo,anio,duracion,puntaje,imagen,trailer,descripcion){
+    enviarMensajeAlServidorPost(serviModPelicula,retornoDelClick);
 
+
+
+    function retornoDelClick(respuesta){
+        alert(respuesta);
+    }
+
+    function enviarMensajeAlServidorPost(serviModPelicula, funcionARealizar){
+        var xmlhttp = new XMLHttpRequest();
+        var datos = new FormData();
+        datos.append("id_pelicula",id);
+        datos.append("titulo",titulo);
+        datos.append("anio",anio);
+        datos.append("duracion",duracion);
+        datos.append("puntaje",puntaje);
+        datos.append("imagen",imagen);
+        datos.append("trailer",trailer);
+        datos.append("descripcion",descripcion);
+    
+        // indico hacia donde va el mensaje
+        xmlhttp.open("POST", serviModPelicula, true);
+        //seteo el evento
+        xmlhttp.onreadystatechange = function () {
+            //Veo si llego la respuesta del servidor
+            if (xmlhttp.readyState == XMLHttpRequest.DONE) {
+                //Reviso si la respuesta es correcta
+                if (xmlhttp.status == 200) {
+                    funcionARealizar(xmlhttp.responseText);
+                }
+                else {
+                    alert("ocurrio un error");
+                }
+            }
+        
+        }
+    
+       
+        xmlhttp.setRequestHeader("enctype", "multipart/form-data");
+    
+        //envio el mensaje    
+        xmlhttp.send(datos);
+     }
+        
+}
 
 
 function enviarMensajeAlServidor(servidor, funcionARealizar){
