@@ -1,6 +1,6 @@
 addEventListener("load", load);
 
-var servidor = "https://backendpruebaedi.herokuapp.com/altapelicula";
+var servidor = "https://colavellabackend.herokuapp.com/altapelicula";
 
 
 function $(demo){
