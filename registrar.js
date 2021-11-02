@@ -43,7 +43,7 @@ function enviarMensajeAlServidor(servi, funcionARealizar){
 }
 
 
-function enviarMensajeAlServidorPost(servidor, funcionARealizar) {
+function enviarMensajeAlServidorPost(servi, funcionARealizar) {
 
     //declaro el objeto
     var xmlhttp = new XMLHttpRequest();
@@ -66,7 +66,7 @@ function enviarMensajeAlServidorPost(servidor, funcionARealizar) {
         alert(msg);
     }else{
     // indico hacia donde va el mensaje
-    xmlhttp.open("POST", servidor, true);
+    xmlhttp.open("POST", servi, true);
     //seteo el evento
     xmlhttp.onreadystatechange = function () {
         //Veo si llego la respuesta del servidor

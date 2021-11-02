@@ -1,9 +1,13 @@
 addEventListener("load", load);
 //llamo al servidor
 var servidor = "https://colavellabackend.herokuapp.com/peliculas";
+//var servidor = "localhost:444/peliculas";
 var serviDelete = "https://colavellabackend.herokuapp.com/eliminarpelicula";
+//var serviDelete = "localhost:444/eliminarpelicula";
 var serviFormMod = "https://colavellabackend.herokuapp.com/FormModPelicula";
+//var serviFormMod = "localhost:444/FormModPelicula";
 var serviModPelicula = "https://colavellabackend.herokuapp.com/modificarpelicula";
+//var serviModPelicula = "localhost:444/modificarpelicula";
 
 function $(demo){
     return document.getElementById(demo);
